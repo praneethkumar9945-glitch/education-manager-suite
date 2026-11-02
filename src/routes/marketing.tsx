@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import MarketingApp from "@/components/marketing-pr/App";
+import { AppShell } from "@/components/AppShell";
 
 export const Route = createFileRoute("/marketing")({
   head: () => ({
@@ -17,8 +18,10 @@ export const Route = createFileRoute("/marketing")({
 
 function MarketingPage() {
   return (
-    <div className="min-w-0">
-      <MarketingApp />
-    </div>
+    <AppShell title="Marketing & PR">
+      <div className="min-w-0">
+        <MarketingApp />
+      </div>
+    </AppShell>
   );
 }
