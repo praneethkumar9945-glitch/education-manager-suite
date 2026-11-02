@@ -43,11 +43,11 @@ import {
 } from '@/components/marketing-pr/pages/events/EventsPages';
 
 // Mapping of team roles to their team name used in task assignment
-const TEAM_NAME: Record<string, TaskTeam> = {
+const TEAM_NAME = {
   digital: 'Digital Marketing Executive',
   content: 'Content & Brand Team',
   events: 'Events & Outreach Coordinator',
-};
+} satisfies Record<string, TaskTeam>;
 
 
 function App() {
@@ -63,7 +63,7 @@ function App() {
   const [workflowState, setWorkflowState] = useState<WorkflowState>(initialWorkflowState);
 
   const roleConfig: RoleConfig = useMemo(
-    () => roleConfigs.find((r) => r.id === role) || roleConfigs[0],
+    () => roleConfigs.find((r) => r.id === role) || roleConfigs[0]!,
     [role]
   );
 
