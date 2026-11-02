@@ -14,16 +14,15 @@ export function Drawer({
   open: boolean;
   onClose: () => void;
   title: string;
-  subtitle?: string;
+  subtitle?: string | undefined;
   children: ReactNode;
-  footer?: ReactNode;
-  width?: string;
+  footer?: ReactNode | undefined;
+  width?: string | undefined;
 }) {
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = 'hidden';
-      return () => { document.body.style.overflow = ''; };
-    }
+    if (!open) return;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
   }, [open]);
 
   if (!open) return null;
@@ -69,16 +68,15 @@ export function Modal({
   open: boolean;
   onClose: () => void;
   title: string;
-  subtitle?: string;
+  subtitle?: string | undefined;
   children: ReactNode;
-  footer?: ReactNode;
-  size?: string;
+  footer?: ReactNode | undefined;
+  size?: string | undefined;
 }) {
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = 'hidden';
-      return () => { document.body.style.overflow = ''; };
-    }
+    if (!open) return;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
   }, [open]);
 
   if (!open) return null;
