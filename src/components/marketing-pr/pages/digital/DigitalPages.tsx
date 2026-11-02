@@ -129,7 +129,7 @@ export function DigitalCampaignManagement() {
             ].map(([key, label, type]) => (
               <label key={key} className="text-xs font-medium text-slate-500">
                 {label}
-                <input type={type} value={newCampaign[key as keyof typeof newCampaign]} onChange={(event) => setNewCampaign({ ...newCampaign, [key]: event.target.value })} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-700 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20" />
+                <input type={type} value={newCampaign[key as keyof typeof newCampaign]} onChange={(event) => setNewCampaign({ ...newCampaign, [key!]: event.target.value })} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-700 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20" />
               </label>
             ))}
             <label className="text-xs font-medium text-slate-500">Campaign type<select value={newCampaign.type} onChange={(event) => setNewCampaign({ ...newCampaign, type: event.target.value })} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-700"><option>Paid advertising</option><option>Promotional campaign</option><option>Organic campaign</option></select></label>
@@ -311,7 +311,7 @@ export function SocialMediaManagement() {
         <CardBody>
           <DonutChart size={130} data={platforms.map((p, i) => ({
             label: p, value: posts.filter((sp) => sp.platform === p).reduce((s, sp) => s + sp.reach, 0),
-            color: ['bg-pink-500', 'bg-blue-600', 'bg-blue-700', 'bg-slate-700'][i],
+            color: ['bg-pink-500', 'bg-blue-600', 'bg-blue-700', 'bg-slate-700'][i] ?? 'bg-slate-500',
           }))} centerValue={`${(totalReach / 1000).toFixed(1)}K`} centerLabel="Reach" />
         </CardBody>
       </Card>

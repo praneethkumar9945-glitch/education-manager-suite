@@ -201,7 +201,7 @@ export function HeadDashboard({ tasks, requests, onNavigate }: RoleDashboardProp
     { label: 'Overdue Tasks', value: counts.overdue, icon: <Clock size={20} />, accent: 'red' as Accent },
   ];
   const teamColors = ['bg-blue-500', 'bg-violet-500', 'bg-amber-500'];
-  const byTeam = TEAMS.map((team, i) => ({ label: TEAM_SHORT[team] || team, value: tasks.filter((t) => normalizeTaskTeam(t.assignedTeam) === team).length, color: teamColors[i] }));
+  const byTeam = TEAMS.map((team, i) => ({ label: TEAM_SHORT[team] || team, value: tasks.filter((t) => normalizeTaskTeam(t.assignedTeam) === team).length, color: teamColors[i] ?? 'bg-slate-500' }));
   const statusData = [
     { label: 'New', value: counts.isNew, color: 'bg-amber-500' },
     { label: 'In Progress', value: counts.inProgress, color: 'bg-blue-500' },
@@ -291,7 +291,7 @@ function TeamDashboardBase({ tasks, onNavigate, teamName, headerTitle, headerDes
   const teamTasks = tasks.filter((t) => normalizeTaskTeam(t.assignedTeam) === teamName);
   const counts = statusCounts(teamTasks);
   const barColors = ['bg-blue-500', 'bg-violet-500', 'bg-cyan-500', 'bg-amber-500'];
-  const byCategory = categories.map((c, i) => ({ label: c, value: teamTasks.filter((t) => getTaskCategory(t) === c).length, color: barColors[i % barColors.length] }));
+  const byCategory = categories.map((c, i) => ({ label: c, value: teamTasks.filter((t) => getTaskCategory(t) === c).length, color: barColors[i % barColors.length] ?? 'bg-slate-500' }));
   const statusData = [
     { label: newLabel, value: counts.isNew, color: 'bg-amber-500' },
     { label: 'In Progress', value: counts.inProgress, color: 'bg-blue-500' },
@@ -310,7 +310,7 @@ function TeamDashboardBase({ tasks, onNavigate, teamName, headerTitle, headerDes
   const kpis = [
     { label: totalLabel, value: counts.total, icon: <ClipboardList size={20} />, accent: 'slate' as Accent },
     ...categories.map((c) => ({ label: CATEGORY_KPI_LABEL[c], value: teamTasks.filter((t) => getTaskCategory(t) === c).length, icon: CATEGORY_ICON[c], accent: 'blue' as Accent })),
-    ...tailKpis.map((k) => tailMap[k]),
+    ...tailKpis.map((k) => tailMap[k]!),
   ];
   const trend = monthBuckets(teamTasks);
 
