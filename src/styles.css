@@ -188,3 +188,22 @@
 @keyframes grad { to { background-position: 200% center; } }
 nav a { transition: background .25s, color .25s, border-color .25s; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* ===== Marketing module workspace ===== */
+@layer components {
+  .module-navigation {
+    background: linear-gradient(180deg, var(--module-start), var(--module-middle) 60%, var(--module-end));
+    color: var(--module-foreground);
+  }
+  .module-navigation .module-nav-item { color: var(--module-muted); }
+  .module-navigation .module-nav-item:hover,
+  .module-navigation .module-nav-active { background: var(--module-active); color: var(--module-foreground); }
+  .module-workspace :is(h1, h2, h3, h4) { letter-spacing: 0; }
+  .module-workspace :is([class~="bg-white"], [class~="bg-white/80"]) { background-color: var(--card); }
+  .module-workspace :is([class~="bg-slate-50"], [class~="bg-gray-50"]) { background-color: var(--background); }
+  .module-workspace :is([class~="bg-slate-100"], [class~="bg-gray-100"]) { background-color: var(--muted); }
+  .module-workspace :is([class~="text-slate-900"], [class~="text-slate-800"], [class~="text-slate-700"], [class~="text-gray-900"], [class~="text-gray-800"]) { color: var(--foreground); }
+  .module-workspace :is([class~="text-slate-600"], [class~="text-slate-500"], [class~="text-slate-400"], [class~="text-gray-500"], [class~="text-gray-600"]) { color: var(--muted-foreground); }
+  .module-workspace :is([class~="border-slate-200"], [class~="border-slate-100"], [class~="border-gray-200"]) { border-color: var(--border); }
+  .module-workspace :is([class~="rounded-xl"], [class~="rounded-2xl"]) { border-radius: var(--radius-md); }
+}
