@@ -96,6 +96,13 @@
   --sidebar-accent-foreground: oklch(1 0 0);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+  --module-start: #0b1e4d;
+  --module-middle: #112a6b;
+  --module-end: #15348a;
+  --module-foreground: oklch(1 0 0);
+  --module-muted: oklch(1 0 0 / 75%);
+  --module-border: oklch(1 0 0 / 10%);
+  --module-active: oklch(1 0 0 / 15%);
 }
 
 .dark {
