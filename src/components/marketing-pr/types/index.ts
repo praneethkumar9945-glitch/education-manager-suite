@@ -87,8 +87,8 @@ export interface EnquiryInteraction {
   id: string;
   callDateTime: string;
   callStatus: EnquiryCallStatus;
-  notes?: string;
-  nextFollowUpDate?: string;
+  notes?: string | undefined;
+  nextFollowUpDate?: string | undefined;
 }
 
 export type PRStatus =
@@ -111,9 +111,9 @@ export interface Student {
   status: LeadStatus;
   assignedCounsellor: string;
   interestLevel: 'High' | 'Medium' | 'Low';
-  lastContact?: string;
-  nextFollowUp?: string;
-  notes?: string;
+  lastContact?: string | undefined;
+  nextFollowUp?: string | undefined;
+  notes?: string | undefined;
 }
 
 export interface Enquiry {
@@ -124,14 +124,14 @@ export interface Enquiry {
   date: string;
   status: 'Open' | 'Responded' | 'Closed';
   assignedCounsellor: string;
-  lastResponse?: string;
-  phoneNumber?: string;
-  interestedCourse?: string;
-  callStatus?: EnquiryCallStatus;
-  callNotes?: string;
-  nextFollowUpDate?: string;
-  callDateTime?: string;
-  activityHistory?: EnquiryInteraction[];
+  lastResponse?: string | undefined;
+  phoneNumber?: string | undefined;
+  interestedCourse?: string | undefined;
+  callStatus?: EnquiryCallStatus | undefined;
+  callNotes?: string | undefined;
+  nextFollowUpDate?: string | undefined;
+  callDateTime?: string | undefined;
+  activityHistory?: EnquiryInteraction[] | undefined;
 }
 
 export interface FollowUp {
@@ -142,7 +142,7 @@ export interface FollowUp {
   lastContact: string;
   nextFollowUp: string;
   status: FollowUpStatus;
-  notes?: string;
+  notes?: string | undefined;
 }
 
 export interface CounsellingRecord {
@@ -431,22 +431,22 @@ export interface Task {
   title: string;
   description: string;
   assignedTeam: TaskTeam;
-  category?: TaskCategory;
-  assignedTo?: string;
+  category?: TaskCategory | undefined;
+  assignedTo?: string | undefined;
   priority: Priority;
   dueDate: string;
   status: TaskStatus;
   createdBy: string;
   createdAt: string;
-  relatedTo?: string;
-  additionalInstructions?: string;
-  progress?: number;
-  comments?: TaskComment[];
-  attachments?: TaskAttachment[];
-  reviewComments?: string;
-  submittedAt?: string;
-  completedAt?: string;
-  activity?: TaskActivity[];
+  relatedTo?: string | undefined;
+  additionalInstructions?: string | undefined;
+  progress?: number | undefined;
+  comments?: TaskComment[] | undefined;
+  attachments?: TaskAttachment[] | undefined;
+  reviewComments?: string | undefined;
+  submittedAt?: string | undefined;
+  completedAt?: string | undefined;
+  activity?: TaskActivity[] | undefined;
 }
 
 export interface TaskRequest {
@@ -460,7 +460,7 @@ export interface TaskRequest {
   createdBy: string;
   createdAt: string;
   status: TaskRequestStatus;
-  linkedTaskId?: string;
+  linkedTaskId?: string | undefined;
 }
 
 export interface Notification {
